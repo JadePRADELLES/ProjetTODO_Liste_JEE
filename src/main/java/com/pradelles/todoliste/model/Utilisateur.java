@@ -18,6 +18,11 @@ public class Utilisateur {
 	private String mot_de_passe;
 	
 	
+	
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", nom=" + nom + ", pseudo=" + pseudo + ", mot_de_passe=" + mot_de_passe + "]";
+	}
 	public int getId() {
 		return id;
 	}

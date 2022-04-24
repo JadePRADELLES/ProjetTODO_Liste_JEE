@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Créationde compte</title>
+</head>
+<body>
+	<h1> Création d'un nouveau compte</h1>
+	<form method="post" th:action="@{/creationCompte}" th:object="${utilisateur}">
+	  
+	     <label>Entrez votre nom  </label> 
+	     <input type="text" name="nom" th:field="*{nom}">  
+	     
+	     <label>Entrez votre pseudo  </label> 
+	     <input type="text" name="pseudo" th:field="*{pseudo}" required="required">   
+	     
+	     <label>Entrez votre mot de passe  </label> 
+	     <input type="password" name="mot de passe" th:field="*{mot_de_passe}" required="required">  
+	     
+	     <button type="submit">Envoyer</button>
+	  </form>  
+</body>
+</html>
