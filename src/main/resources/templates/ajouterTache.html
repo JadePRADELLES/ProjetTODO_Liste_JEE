@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajouter Tache</title>
+</head>
+<body>
+
+<h1>Ajouter une tache</h1>
+	<form method="post" th:action="@{/ajouterTache}" th:object="${tache}">
+	  
+	     <label>Entrez le titre de la tache  </label> 
+	     <input type="text" name="titre" th:field="*{titre}" required="required">  
+	     
+	     <label>Entrez la description  </label> 
+	     <input type="text" name="description" th:field="*{description}" >   
+	     
+	     <!--<label>Entrez url de votre image  </label> 
+	     <input type="text" name="url_img" th:field="*{url_img}" > 
+	     
+	     <label>Entrez la date de fin prévu  </label> 
+	      <input type="date" name="date_prevu_fin " th:field="*{date_prevu_fin} " >
+	      -->
+	     <button type="submit">Envoyer</button>
+	  </form>  
+
+</body>
+</html>

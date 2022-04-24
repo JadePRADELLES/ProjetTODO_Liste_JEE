@@ -21,9 +21,10 @@ public class Tache {
 	private int id;
 	private String titre;	
 	private String description;
-	private Boolean fini;
+	private Boolean etat;
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date date_fin;	
+	private Date date_derniere_modif;
+	private String url_img;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_prevu_fin;	
 	@ManyToOne 
@@ -51,17 +52,24 @@ public class Tache {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Boolean getFini() {
-		return fini;
+	
+	public Boolean getEtat() {
+		return etat;
 	}
-	public void setFini(Boolean fini) {
-		this.fini = fini;
+	public void setEtat(Boolean etat) {
+		this.etat = etat;
 	}
-	public Date getDate_fin() {
-		return date_fin;
+	public Date getDate_derniere_modif() {
+		return date_derniere_modif;
 	}
-	public void setDate_fin(Date date_fin) {
-		this.date_fin = date_fin;
+	public void setDate_derniere_modif(Date date_derniere_modif) {
+		this.date_derniere_modif = date_derniere_modif;
+	}
+	public String getUrl_img() {
+		return url_img;
+	}
+	public void setUrl_img(String url_img) {
+		this.url_img = url_img;
 	}
 	public Date getDate_prevu_fin() {
 		return date_prevu_fin;

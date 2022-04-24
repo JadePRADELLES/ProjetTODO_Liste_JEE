@@ -13,7 +13,7 @@ import com.pradelles.todoliste.model.Utilisateur;
 import com.pradelles.todoliste.repository.UtilisateurRepository;
 
 @RestController
-public class CreationCompteController {
+public class UtilisateurController {
 	
 	@Autowired
 	private UtilisateurRepository uR;

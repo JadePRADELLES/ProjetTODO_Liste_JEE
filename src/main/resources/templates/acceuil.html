@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Page Principal</title>
+</head>
+<body>
+<button onclick="window.location.href='/ajouterTache';">Ajouter Tache</button>
+
+<tr th:each="tache: ${tache}">
+	<td th:text="${tache.titre}" />
+	<button>Modifier</button>
+	<button>Supprimer</button>
+</tr>
+
+</body>
+</html>

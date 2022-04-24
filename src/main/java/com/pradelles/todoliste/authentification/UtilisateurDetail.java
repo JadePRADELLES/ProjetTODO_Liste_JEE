@@ -17,6 +17,14 @@ public class UtilisateurDetail implements UserDetails   {
 		this.u = u;
 	}
 
+	public Utilisateur getU() {
+		return u;
+	}
+
+	public void setU(Utilisateur u) {
+		this.u = u;
+	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub

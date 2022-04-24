@@ -1,9 +1,12 @@
 package com.pradelles.todoliste.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +19,8 @@ public class Utilisateur {
 	private String nom;
 	private String pseudo;
 	private String mot_de_passe;
-	
+	@OneToMany(targetEntity = Tache.class, mappedBy = "utilisateur")
+    private List<Tache> taches;
 	
 	
 	@Override
@@ -46,6 +50,12 @@ public class Utilisateur {
 	}
 	public void setMot_de_passe(String mot_de_passe) {
 		this.mot_de_passe = mot_de_passe;
+	}
+	public List<Tache> getTaches() {
+		return taches;
+	}
+	public void setTaches(List<Tache> taches) {
+		this.taches = taches;
 	}
 	
 	
