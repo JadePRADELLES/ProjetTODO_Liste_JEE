@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link th:href="@{/teste.css}" rel="stylesheet" media="screen"/>
 <meta charset="utf-8">
 <title>Page Principal</title>
 </head>
 <body>
 <button onclick="window.location.href='/ajouterTache';">Ajouter Tache</button>
 
-<tr th:each="tache: ${tache}">
-	<td th:text="${tache.titre}" />
-	<button>Modifier</button>
-	<button>Supprimer</button>
-</tr>
-
+<form method="post" th:action="@{/logout}"><button type="submit"> Déconnexion</button></form>
+<br/>
+ <table>
+	<tr>
+			<th>Etat</th>
+	        <th>Titre</th>
+	        <th>Date</th>
+	        <th></th>
+	        <th></th>
+	</tr>
+	
+	<tr th:each="tache: ${tache}">
+		<br/>
+		<td>
+			<form method="post" th:action="@{/etatTache(id=${tache.id})}">
+				<input type="checkbox" th:checked="${tache.etat}" onChange="this.form.submit()"/>
+				<p th:if="${tache.etat}" th:text="${#dates.format(tache.date_cloture, 'dd MMM yyyy')}"></p>
+			</form>
+		</td>
+		<td th:text="${tache.titre}"></td>
+		<td th:text="${#dates.format(tache.date_derniere_modif, 'dd MMM yyyy')} "></td>	
+		<td><a th:href=@{/modifTache(id=${tache.id})}><button>Modifier</button></a></td>
+		<td><form method="post" th:action="@{/suppTache(id=${tache.id})}"><button type="submit" class="btnSup">Supprimer</button></form></td>
+	</tr>
+</table>
 </body>
 </html>

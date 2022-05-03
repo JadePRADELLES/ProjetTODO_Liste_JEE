@@ -22,14 +22,27 @@ public class TacheService {
 	 * @param id, id de la tache
 	 * @return tache
 	 */
-	public Optional < Tache > getTacheById(int id){
+	public Tache  getTacheById(int id){
 		return tR.findById(id);
 		
 	};
 
+	/**
+	 * enregirte dans la bd une tache
+	 * @param t
+	 */
 	public void updateTache(Tache t) {
 		tR.save(t);
 	};
+	
+	/**
+	 * ajoute une tache et l'envoie à la bd
+	 * @param titre
+	 * @param description
+	 * @param date_derniere_modif
+	 * @param etat
+	 * @param u
+	 */
 
 	public void ajouterTache(String titre, String description, Date date_derniere_modif, boolean etat, @AuthenticationPrincipal UtilisateurDetail u) {
 		Tache t = new Tache();
@@ -41,16 +54,40 @@ public class TacheService {
 		tR.save(t);
 	};
 
+	/**
+	 * supprimme une tache avec l'id 
+	 * @param id
+	 */
 	public void supprTache(int id) {
-		Optional < Tache > t = tR.findById(id);
-        if (t.isPresent()) {
-            tR.delete(t.get());
+		Tache  t = tR.findById(id);
+        if (t!=null) {
+            tR.delete(t);
         }
 	};
 
+	/**
+	 * sauvegarde une tache
+	 * @param t
+	 */
 	public void saveTache(Tache t) {
 		tR.save(t);
 	}
 	
+	/**
+	 * changement de l'etat de la tache dont l'id est passé en parametre
+	 * @param id
+	 */
+	public void changementEtat(int id) {
+		Tache t = tR.findById(id);
+		t.setEtat(!t.getEtat());
+		if (!t.getEtat()) {
+			t.setDate_cloture(null);
+		}
+		else {
+			
+				t.setDate_cloture(new Date());
+			}
+		tR.save(t);
+	}
 
 }

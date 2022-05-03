@@ -7,17 +7,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.pradelles.todoliste.model.Utilisateur;
 import com.pradelles.todoliste.repository.UtilisateurRepository;
+import com.pradelles.todoliste.service.UtilisateurService;
 
 public class UtilisateurDetailService implements UserDetailsService{
 
 	@Autowired
-	private UtilisateurRepository uR;
+	private UtilisateurService uS;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		Utilisateur u;
-		u = uR.findByPseudo(username);
+		u = uS.getUtilisateurByPseudo(username);
 		if (u==null) {
 			throw new UsernameNotFoundException("pas trouver utilisateur");
 		}

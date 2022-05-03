@@ -2,12 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Ajouter Tache</title>
+<title>Modifier Tache</title>
 </head>
 <body>
 
-<h1>Ajouter une tache</h1>
-	<form method="post" th:action="@{/ajouterTache}" th:object="${tache}">
+<h1>Modifier une tache</h1>
+	<form method="post" th:action="@{/modifTache}" th:object="${tache}">
+	  
+	  <input type="hidden" th:field="*{id}"/>
+	  <input type="hidden" th:field="*{etat}"/>
 	  
 	     <label>Entrez le titre de la tache  </label> 
 	     <input type="text" name="titre" th:field="*{titre}" required="required"> 

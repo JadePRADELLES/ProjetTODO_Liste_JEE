@@ -4,9 +4,12 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -22,7 +25,7 @@ public class TacheController {
 	private TacheService tS;
 	
 	/**
-	 * affiche
+	 * affiche la page ajouter tache
 	 * @return
 	 */
 	@GetMapping("/ajouterTache")
@@ -40,5 +43,35 @@ public class TacheController {
 		tS.saveTache(t);
 		return new RedirectView("/");
 	}
+
+
+    @PostMapping("/suppTache")
+    public RedirectView suppTache(@RequestParam int id) {
+        tS.supprTache(id);
+        // service.deleteTodo(id);
+        return new RedirectView("/");
+    }
+
+    @GetMapping("/modifTache")
+    public ModelAndView modifierTache(@RequestParam int id) {
+		ModelAndView modelAndView = new ModelAndView("modifierTache");
+		modelAndView.getModelMap().addAttribute("tache",tS.getTacheById(id));
+		return modelAndView;
+	}
+ 
+	@PostMapping("/modifTache")
+	public RedirectView baseUpDateModifTache(Tache t, @AuthenticationPrincipal UtilisateurDetail u) {
+		t.setUtilisateur(u.getU());
+		t.setDate_derniere_modif(new Date());
+		tS.updateTache(t);
+		return new RedirectView("/");
+	}
+
+	@PostMapping("/etatTache")
+	public RedirectView etatTache (@RequestParam int id) {
+        tS.changementEtat(id);
+        return new RedirectView("/");
+	}
+
 
 }

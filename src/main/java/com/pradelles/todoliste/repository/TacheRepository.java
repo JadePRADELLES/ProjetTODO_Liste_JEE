@@ -8,6 +8,7 @@ import com.pradelles.todoliste.model.Tache;
 @Repository
 public interface TacheRepository extends CrudRepository<Tache, Integer> {
 
+	public Tache findById (int id);
 
 
 }

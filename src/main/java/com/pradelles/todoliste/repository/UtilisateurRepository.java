@@ -8,5 +8,6 @@ import com.pradelles.todoliste.model.Utilisateur;
 @Repository
 public interface UtilisateurRepository extends CrudRepository<Utilisateur, Integer> {
 	public Utilisateur findByPseudo (String pseudo) ;
-
+	public Utilisateur findById (int id) ;
+	
 }

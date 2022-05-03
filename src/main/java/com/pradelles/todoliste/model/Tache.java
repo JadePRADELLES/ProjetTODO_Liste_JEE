@@ -12,6 +12,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * 
+ * @author Jade PRADELLES
+ *
+ */
 @Entity
 @Table(name = "tache")
 public class Tache {
@@ -22,9 +29,14 @@ public class Tache {
 	private String titre;	
 	private String description;
 	private Boolean etat;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_derniere_modif;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date_cloture;
 	private String url_img;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_prevu_fin;	
 	@ManyToOne 
@@ -52,7 +64,6 @@ public class Tache {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 	public Boolean getEtat() {
 		return etat;
 	}
@@ -64,6 +75,12 @@ public class Tache {
 	}
 	public void setDate_derniere_modif(Date date_derniere_modif) {
 		this.date_derniere_modif = date_derniere_modif;
+	}
+	public Date getDate_cloture() {
+		return date_cloture;
+	}
+	public void setDate_cloture(Date date_cloture) {
+		this.date_cloture = date_cloture;
 	}
 	public String getUrl_img() {
 		return url_img;

@@ -20,11 +20,14 @@ public class UtilisateurService {
 	 * @param id, id de la tache
 	 * @return tache
 	 */
-	public Optional < Utilisateur > getUtilisateurById(int id){
+	public Utilisateur getUtilisateurById(int id){
 		return uR.findById(id);
 		
 	};
-
+	public Utilisateur getUtilisateurByPseudo(String pseudo){
+		return uR.findByPseudo(pseudo);
+		
+	};
 	
 	public void saveUtilisateur(Utilisateur u) {
 		uR.save(u);

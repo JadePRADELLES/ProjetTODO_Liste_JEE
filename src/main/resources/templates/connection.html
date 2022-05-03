@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<mmeta charset="utf-8">
+<title>Connexion</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+	<input type="text" id="username" name="username" class="form-control" required />
+	<input type="password" id="password" name="password" class="form-control" required/>
+	<button type="submit">Se Connecter</button>
+</form>
+<a th:href=@{/creationCompte}><button> Inscription</button></a>
+</body>
+</html>
