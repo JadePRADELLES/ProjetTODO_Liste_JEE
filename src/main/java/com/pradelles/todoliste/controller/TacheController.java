@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,7 +61,7 @@ public class TacheController {
 	}
  
 	@PostMapping("/modifTache")
-	public RedirectView baseUpDateModifTache(Tache t, @AuthenticationPrincipal UtilisateurDetail u) {
+	public RedirectView baseUpDateModifTache(@ModelAttribute Tache t, @AuthenticationPrincipal UtilisateurDetail u) {
 		t.setUtilisateur(u.getU());
 		t.setDate_derniere_modif(new Date());
 		tS.updateTache(t);

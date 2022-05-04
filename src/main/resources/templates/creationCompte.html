@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link th:href="@{/styleBootstrap/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script th:src="@{/styleBootstrap/jquery/jquery.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/popper/popper.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/bootstrap/js/bootstrap.min.js}"></script>
 <meta charset="utf-8">
 <title>Créationde compte</title>
 </head>
 <body>
 	<h1> Création d'un nouveau compte</h1>
-	<form method="post" th:action="@{/creationCompte}" th:object="${utilisateur}">
-	  
-	     <label>Entrez votre nom  </label> 
-	     <input type="text" name="nom" th:field="*{nom}">  
-	     
-	     <label>Entrez votre pseudo  </label> 
-	     <input type="text" name="pseudo" th:field="*{pseudo}" required="required">   
-	     
-	     <label>Entrez votre mot de passe  </label> 
-	     <input type="password" name="mot de passe" th:field="*{mot_de_passe}" required="required">  
-	     
-	     <button type="submit">Envoyer</button>
-	  </form>  
-	  
-<a th:href=@{/login}><button> Annuler</button></a>
+			
+		<div class="container">
+		  <div class="row">
+		    <div class="col-1">
+		    </div>
+		    <div class="col ">
+					<form method="post" th:action="@{/creationCompte}" th:object="${utilisateur}">
+					  <div class="form-group">
+					     <label>Entrez votre nom  </label> 
+					     <input type="text" name="nom" class="form-control" th:field="*{nom}">  
+					  </div>
+					  <div class="form-group">
+					     <label>Entrez votre pseudo  </label> 
+					     <input type="text" name="pseudo" class="form-control" th:field="*{pseudo}" required="required">   
+					  </div>
+			          <div class="form-group">
+					     <label>Entrez votre mot de passe  </label> 
+					     <input type="password" name="mot de passe" class="form-control" th:field="*{mot_de_passe}" required="required">  
+					  </div>
+					  <div class="form-group">
+					     <button class="btn btn-outline-primary" type="submit">Envoyer</button>
+					   </div>
+					  </form>  
+					  
+				<a th:href=@{/login}><button class="btn btn-outline-danger"> Annuler</button></a>
+			</div>
+			<div class="col-1">
+		    </div>
 </body>
 </html>

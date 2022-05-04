@@ -30,7 +30,7 @@ public class AccueilController {
 		ModelAndView modelAndView = new ModelAndView("acceuil");
 
 		Utilisateur oU= uS.getUtilisateurById(u.getU().getId());
-			modelAndView.getModelMap().addAttribute("tache", oU.getTaches());
+			modelAndView.getModelMap().addAttribute("taches", oU.getTaches());
 			
 		
 		return modelAndView;

@@ -22,13 +22,14 @@
 	<tr>
 			<th>Etat</th>
 	        <th>Titre</th>
-	        <th>Date</th>
-	        <th></th>
+	        <th>Dernière modifiaction</th>
+	        <th>Au plus tard</th>
+	        <th style="width: 40%"></th>
 	        <th></th>
 	</tr>
 	</thead>
 	
-	<tr th:each="tache: ${tache}">
+	<tr th:each="tache: ${taches}">
 		<br/>
 		<td>
 		
@@ -39,20 +40,21 @@
 		</td>
 		<td th:text="${tache.titre}"></td>
 		<td th:text="${#dates.format(tache.date_derniere_modif, 'dd MMM yyyy')} "></td>	
-		<td>
+		<td th:text="${#dates.format(tache.date_prevu_fin, 'dd MMM yyyy')} "></td>	
+		<td style="width: 40%">
 		
 		<p>
-  <a class="btn btn-primary" data-toggle="collapse" th:href="'#'+${tache.id}" role="button" aria-expanded="false" th:aria-controls="${tache.id}">Description</a>
-  </p>
-<div class="row">
-  <div class="col">
-    <div class="collapse multi-collapse" th:id="${tache.id}">
-      <div class="card card-body" th:text="${tache.description}">
-        
-        </div>
-    </div>
-  </div>
- </div>
+		  <a class="btn btn-primary" data-toggle="collapse" th:href="'#'+${tache.id}" role="button" aria-expanded="false" th:aria-controls="${tache.id}">Description</a>
+		</p>
+		<div class="row">
+		  <div class="col">
+		    <div class="collapse multi-collapse" th:id="${tache.id}">
+		      <div class="card card-body" th:text="${tache.description}">
+		        
+		        </div>
+		    </div>
+		  </div>
+		 </div>
 		
 		
 		</td>

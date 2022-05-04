@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<mmeta charset="utf-8">
+<link th:href="@{/styleBootstrap/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script th:src="@{/styleBootstrap/jquery/jquery.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/popper/popper.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/bootstrap/js/bootstrap.min.js}"></script>
+<meta charset="utf-8">
 <title>Connexion</title>
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-	<input type="text" id="username" name="username" class="form-control" required />
-	<input type="password" id="password" name="password" class="form-control" required/>
-	<button type="submit">Se Connecter</button>
-</form>
-<a th:href=@{/creationCompte}><button> Inscription</button></a>
+<H1>Connexion:</H1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-6 ">
+    
+		<form th:action="@{/login}" method="post">
+			<div class="form-group">
+			
+	     		<label>Entrez votre pseudo  </label> 
+				<input type="text" id="username" name="username" class="form-control" required />
+			</div>
+			<div class="form-group">
+			
+	     		<label>Entrez votre mot de passe  </label> 
+				<input type="password" name="password"  class="form-control" id="inputPassword" placeholder="Password" required/>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-outline-primary btn-block" type="submit">Se Connecter</button>
+			</div>
+		</form>
+		<br/>
+		<p>Pas encore inscrit?</p>
+		<a th:href=@{/creationCompte}><button class="btn btn-outline-primary btn-block"> Inscription</button></a>
+		
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
 </body>
 </html>

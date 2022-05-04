@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link th:href="@{/styleBootstrap/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script th:src="@{/styleBootstrap/jquery/jquery.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/popper/popper.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/bootstrap/js/bootstrap.min.js}"></script>
 <meta charset="utf-8">
 <title>Modifier Tache</title>
 </head>
@@ -8,24 +12,25 @@
 
 <h1>Modifier une tache</h1>
 	<form method="post" th:action="@{/modifTache}" th:object="${tache}">
-	  
-	  <input type="hidden" th:field="*{id}"/>
-	  <input type="hidden" th:field="*{etat}"/>
-	  
-	     <label>Entrez le titre de la tache  </label> 
-	     <input type="text" name="titre" th:field="*{titre}" required="required"> 
-	     <br/> 
-	     
-	     <label>Entrez la description  </label> 
-	     <input type="text" name="description" th:field="*{description}" >   
-	      <br/> 
-	      
-	     
-	     <label>Entrez la date de fin prévu  </label> 
-	      <input type="date" name="date_prevu_fin " th:field="*{date_prevu_fin} " >
-	       <br/> 
-
-	     <button type="submit">Envoyer</button>
+	  <div class="form-group">
+		  <input type="hidden" th:field="*{id}"/>
+		  <input type="hidden" th:field="*{etat}"/>
+		  
+		     <label>Entrez le titre de la tache  </label> 
+		     <input type="text" name="titre" th:field="*{titre}" required="required"> 
+		     <br/> 
+		     
+		     <label>Entrez la description  </label> 
+		     <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" th:field="*{description}" ></textarea>   
+		      <br/> 
+		      
+		     
+		     <label>Entrez la date de fin prévu  </label> 
+		      <input type="date" name="date_prevu_fin " th:field="*{date_prevu_fin} " >
+		       <br/> 
+	
+		     <button type="submit">Envoyer</button>
+	   </div>
 	  </form>  
 
 </body>

@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link th:href="@{/styleBootstrap/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script th:src="@{/styleBootstrap/jquery/jquery.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/popper/popper.min.js}"></script>  
+    <script th:src="@{/styleBootstrap/bootstrap/js/bootstrap.min.js}"></script>
 <meta charset="utf-8">
 <title>Ajouter Tache</title>
 </head>
 <body>
 
 <h1>Ajouter une tache</h1>
+<div class="container">
+	<div class="row">
+	<div class="col-1">
+	</div>
+	<div class="col ">
 	<form method="post" th:action="@{/ajouterTache}" th:object="${tache}">
+	  <div class="form-group">
 	  
-	     <label>Entrez le titre de la tache  </label> 
-	     <input type="text" name="titre" th:field="*{titre}" required="required"> 
+	     <label for="exampleFormControlInput1">Entrez le titre de la tache  </label> 
+	     <input type="text" class="form-control" id="exampleFormControlInput1" name="titre" th:field="*{titre}" required="required"> 
 	     <br/> 
 	     
 	     <label>Entrez la description  </label> 
-	     <input type="text" name="description" th:field="*{description}" >   
+	     <input type="text" class="form-control" id="exampleFormControlInput1" name="description" th:field="*{description}" >   
 	      <br/> 
 	      
 	     
@@ -22,7 +32,10 @@
 	      <input type="date" name="date_prevu_fin " th:field="*{date_prevu_fin} " >
 	       <br/> 
 
-	     <button type="submit">Envoyer</button>
+	     <button class="btn btn-outline-primary" type="submit">Envoyer</button>
+	     <div class="col-1">
+		</div>
+	   </div>
 	  </form>  
 
 </body>
