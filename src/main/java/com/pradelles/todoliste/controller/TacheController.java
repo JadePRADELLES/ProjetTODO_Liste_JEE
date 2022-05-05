@@ -41,6 +41,7 @@ public class TacheController {
 		t.setUtilisateur(u.getU());
 		t.setDate_derniere_modif(new Date());
 		t.setEtat(false);
+		t.setDate_creation(new Date());
 		tS.saveTache(t);
 		return new RedirectView("/");
 	}

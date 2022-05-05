@@ -39,6 +39,10 @@ public class Tache {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_prevu_fin;	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date_creation;	
 	@ManyToOne 
     @JoinColumn( name="id_utilisateur", nullable=false )
 	private Utilisateur utilisateur ;
@@ -93,6 +97,12 @@ public class Tache {
 	}
 	public void setDate_prevu_fin(Date date_prevu_fin) {
 		this.date_prevu_fin = date_prevu_fin;
+	}
+	public Date getDate_creation() {
+		return date_creation;
+	}
+	public void setDate_creation(Date date_creation) {
+		this.date_creation = date_creation;
 	}
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
