@@ -35,7 +35,8 @@ public class Tache {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_cloture;
-	private String url_img;
+	
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date_prevu_fin;	
@@ -86,12 +87,7 @@ public class Tache {
 	public void setDate_cloture(Date date_cloture) {
 		this.date_cloture = date_cloture;
 	}
-	public String getUrl_img() {
-		return url_img;
-	}
-	public void setUrl_img(String url_img) {
-		this.url_img = url_img;
-	}
+	
 	public Date getDate_prevu_fin() {
 		return date_prevu_fin;
 	}

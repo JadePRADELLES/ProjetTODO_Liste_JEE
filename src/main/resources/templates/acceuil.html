@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link th:href="@{/teste.css}" rel="stylesheet" media="screen"/>
+
+<link th:href="@{/style.css}" rel="stylesheet" media="screen"/>
 <link th:href="@{/styleBootstrap/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <script th:src="@{/styleBootstrap/jquery/jquery.min.js}"></script>  
     <script th:src="@{/styleBootstrap/popper/popper.min.js}"></script>  
@@ -10,21 +11,32 @@
 <title>Page Principal</title>
 </head>
 <body>
+<header>
+<h1>Bienvenu sur todoApp</h1>
+</header>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-1">
 	<button class="btn btn-outline-secondary mr-2" onclick="window.location.href='/ajouterTache';">Ajouter Tache</button>
 	
 	<form method="post" th:action="@{/logout}"><button type="submit" class="btn btn-outline-danger"> Déconnexion</button></form>
 </div>
-
-<form method="get" th:action="@{/}">
-<input type="text" name="nom_recherche" class="form-control" />
-
-<input type="date" name="date1" class="form-control"/>
-<input type="date" name="date2" class="form-control"/>
-<button type="submit" class="btn btn-outline-danger">Filter</button>
-</form>
-
-<table class="table table-hover">
+<div class="mb-5">
+	<form method="get" th:action="@{/}">
+		<div class="form-group">
+			<label>Recherche par nom et date de création de tache:</label>
+			<input type="text" name="nom_recherche" class="form-control" />
+		</div>
+		<div class="form-group">
+			<input type="date" name="date1" class="form-control"/>
+		</div>
+		<div class="form-group">
+			<input type="date" name="date2" class="form-control"/>
+		</div>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-1">
+			<button type="submit" class="btn btn-primary">Filter</button>
+		</div>
+	</form>
+</div>
+<table class="table table-hover ">
  	<thead>
 	<tr>
 			<th>Etat</th>
@@ -37,7 +49,6 @@
 	</thead>
 	
 	<tr th:each="tache: ${taches}">
-		<br/>
 		<td>
 		
 			<form method="post" th:action="@{/etatTache(id=${tache.id})}">
@@ -62,8 +73,6 @@
 		    </div>
 		  </div>
 		 </div>
-		
-		
 		</td>
 		<td>
 		<div class="btn-group" role="group" aria-label="Basic mixed styles example">

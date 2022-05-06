@@ -37,7 +37,7 @@ public class AuthentificationConfiguration extends WebSecurityConfigurerAdapter 
 		// TODO Auto-generated method stub
 		http.formLogin().loginPage("/login").defaultSuccessUrl("/",true);
 		http.authorizeRequests()
-		.antMatchers("/creationCompte","/styleBootstrap/**").permitAll()
+		.antMatchers("/creationCompte","/styleBootstrap/**","/style.css").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin().permitAll()
