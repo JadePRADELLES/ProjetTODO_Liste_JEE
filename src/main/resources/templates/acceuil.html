@@ -15,7 +15,7 @@
 <h1>Bienvenu sur todoApp</h1>
 </header>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-1">
-	<button class="btn btn-outline-secondary mr-2" onclick="window.location.href='/ajouterTache';">Ajouter Tache</button>
+	<a class="btn btn-outline-secondary mr-2" th:href="@{/ajouterTache}">Ajouter Tache</a>
 	
 	<form method="post" th:action="@{/logout}"><button type="submit" class="btn btn-outline-danger"> Déconnexion</button></form>
 </div>

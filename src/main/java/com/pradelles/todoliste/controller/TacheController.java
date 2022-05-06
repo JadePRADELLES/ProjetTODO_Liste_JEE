@@ -49,7 +49,7 @@ public class TacheController {
 		t.setEtat(false);
 		t.setDate_creation(new Date());
 		tS.saveTache(t);
-		return new RedirectView("");
+		return new RedirectView("/",true);
 	}
 
 
@@ -62,7 +62,7 @@ public class TacheController {
     public RedirectView suppTache(@RequestParam int id) {
         tS.supprTache(id);
         // service.deleteTodo(id);
-        return new RedirectView("");
+        return new RedirectView("/",true);
     }
     
     /**
@@ -88,7 +88,7 @@ public class TacheController {
 		t.setUtilisateur(u.getU());
 		t.setDate_derniere_modif(new Date());
 		tS.updateTache(t);
-		return new RedirectView("");
+		return new RedirectView("/",true);
 	}
 
 	/**

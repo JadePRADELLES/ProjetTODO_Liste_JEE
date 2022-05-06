@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.pradelles.todoliste.model.Utilisateur;
 import com.pradelles.todoliste.repository.UtilisateurRepository;
@@ -37,12 +38,11 @@ public class UtilisateurController {
 	 * @return
 	 */
 	@PostMapping("/creationCompte")
-	public String baseUpDate(Utilisateur u) {
+	public RedirectView baseUpDate(Utilisateur u) {
 		System.out.println(u);
 		bCP = new BCryptPasswordEncoder();
 		u.setMot_de_passe(bCP.encode(u.getMot_de_passe()));
 		u = uR.save(u);
-		System.out.println(u);
-		return"";
+		return new RedirectView("/",true);
 	}
 }
