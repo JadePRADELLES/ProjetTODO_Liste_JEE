@@ -24,11 +24,20 @@ public class UtilisateurService {
 		return uR.findById(id);
 		
 	};
+	/**
+	 * trouve un utilisateur avec son pseudo
+	 * @param pseudo
+	 * @return
+	 */
 	public Utilisateur getUtilisateurByPseudo(String pseudo){
 		return uR.findByPseudo(pseudo);
 		
 	};
-	
+
+	/**
+	 * sauvegard l'utilisateur
+	 * @param u
+	 */
 	public void saveUtilisateur(Utilisateur u) {
 		uR.save(u);
 	}

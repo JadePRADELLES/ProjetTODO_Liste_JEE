@@ -128,10 +128,18 @@ public class TacheService {
 		
 	}
 	
+	/**
+	 * trie les taches en fontions des arguments,chercher toutes les tâches dont le nom contient un mot saisi, ou bien entre deux dates de création
+	 * @param lstT
+	 * @param nom_recheche
+	 * @param date1
+	 * @param date2
+	 * @return
+	 */
 	public List<Tache> filtre(List<Tache> lstT,String nom_recheche, Date date1, Date date2){
 		List<Tache> lT = lstT;
 		if (nom_recheche!=null) {
-			lT.removeIf(t->!t.getTitre().contains(nom_recheche));	
+			lT.removeIf(t->!t.getTitre().toLowerCase().contains(nom_recheche.toLowerCase()));	
 		}
 		if(date1!=null) {
 			lT.removeIf(t->t.getDate_creation().before(date1));
@@ -139,8 +147,6 @@ public class TacheService {
 		if(date2!=null) {
 			lT.removeIf(t->t.getDate_creation().after(date2));
 		}
-		
-		
 		return lT;
 	}
 

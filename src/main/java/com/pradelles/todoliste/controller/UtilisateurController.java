@@ -20,6 +20,10 @@ public class UtilisateurController {
 	
 	private BCryptPasswordEncoder bCP;
 	
+	/**
+	 * affiche la page de création de compte
+	 * @return
+	 */
 	@GetMapping("/creationCompte")
 	public ModelAndView vueCreationCompte() {
 		ModelAndView modelAndView = new ModelAndView("creationCompte");
@@ -27,6 +31,11 @@ public class UtilisateurController {
 		return modelAndView;
 	}
 	
+	/**
+	 * enregistre dans la base de donnée le nouvel utilisateur
+	 * @param u
+	 * @return
+	 */
 	@PostMapping("/creationCompte")
 	public String baseUpDate(Utilisateur u) {
 		System.out.println(u);
